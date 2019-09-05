@@ -1,2 +1,2 @@
 # Redes-testes
-Exemplos de configurações
+Portifólio com pequenos projetos pessoais de rede.
