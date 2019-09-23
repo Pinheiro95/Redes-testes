@@ -1,0 +1,56 @@
+DOCUMENTACAO ROTEAMENTO IPV6 V3
+
+
+-----------------------------------------
+R1
+
+ipv6 unicast-routing
+ipv6 router eigrp 90
+	eigrp router-id 1.1.1.1
+	no shut
+exit
+int g0/0
+	ipv6 eigrp 90
+exit
+int serial 0/0/0
+	ipv6 eigrp 90
+end
+show ipv6 protocols
+-----------------------------------------
+-----------------------------------------
+R1
+
+ipv6 unicast-routing
+ipv6 router eigrp 90
+	eigrp router-id 2.2.2.2
+	no shut
+exit
+int g0/0
+	ipv6 eigrp 90
+exit
+int g0/1
+	ipv6 eigrp 90
+exit
+int serial 0/0/0
+	ipv6 eigrp 90
+exit
+int serial 0/0/1
+	ipv6 eigrp 90
+end
+show ipv6 protocols
+--------------------------------------------
+--------------------------------------------
+R3
+
+ipv6 unicast-routing
+ipv6 router eigrp 90
+	eigrp router-id 3.3.3.3
+	no shut
+exit
+int g0/0
+	ipv6 eigrp 90
+exit
+int serial 0/0/0
+	ipv6 eigrp 90
+end
+show ipv6 protocols

@@ -1,0 +1,60 @@
+DOCUMENTACAO ROTEAMENTO OSPF V2
+
+
+----------------------------------------
+R1
+
+ipv6 unicast-routing
+ipv6 router ospf 110
+	router-id 1.1.1.1
+exit
+int g0/0
+	ipv6 ospf 110 area 0
+exit
+int serial 0/0/0
+	ipv6 ospf 110 area 0
+end
+show ipv6 protocols
+show ipv6 neighbor
+show ipv6 route
+-----------------------------------------
+-----------------------------------------
+R2
+
+ipv6 unicast-routing
+ipv6 router ospf 110
+	router-id 2.2.2.2
+exit
+int g0/0
+	ipv6 ospf 110 area 0
+exit
+in g0/1
+	ipv6 ospf 110 area 0
+exit
+int serial 0/0/0
+	ipv6 ospf 110 area 0
+exit
+int serial 0/0/1
+	ipv6 ospf 110 area 0
+end
+show ipv6 protocols
+show ipv6 neighbor
+show ipv6 route
+-----------------------------------------
+-----------------------------------------
+R3
+
+ipv6 unicast-routing
+ipv6 router ospf 110
+	router-id 3.3.3.3
+exit
+int g0/0
+	ipv6 ospf 110 area 0
+exit
+int serial 0/0/1
+	ipv6 ospf 110 area 0
+end
+show ipv6 protocols
+show ipv6 neighbor
+show ipv6 route
+------------------------------------------
